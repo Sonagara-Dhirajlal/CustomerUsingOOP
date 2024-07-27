@@ -1,14 +1,18 @@
 <?php
 
+include "./connection.php";
+
 $id = $_POST['id'];
 $name = $_POST['name'];
 $mobilenumber = $_POST['mobilenumber'];
 $email = $_POST['email'];
 $address = $_POST['address'];
 
-$connection = mysqli_connect('localhost', 'root', '', 'me');
-$query = "UPDATE `cusdetails` SET `Name` = '$name', `MobileNumber` = '$mobilenumber', `Email` = '$email', `Address` = '$address' WHERE `Id` = $id ";
-$row = mysqli_query($connection, $query);
+$query = "UPDATE `cusdetails` SET `Name` = (?), `MobileNumber` = (?), `Email` = (?), `Address` = (?) WHERE `Id` = (?) ";
+$params = [$name,$mobilenumber,$email,$address,$id];
+
+$statement = $connection->prepare($query);
+$row = $statement->execute($params);
 
 if ($row > 0)
     return header('Location: ./index.php');

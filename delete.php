@@ -1,11 +1,13 @@
 <?php
 
+include "./connection.php";
+
 $id = $_GET['id'];
 
-
-$connection = mysqli_connect('localhost','root','','me');
-$query = "DELETE FROM `cusdetails` WHERE `id` = $id";
-$raw = mysqli_query($connection, $query);
+$query = "DELETE FROM `cusdetails` WHERE `id` = (?)";
+$params = [$id];
+$statement = $connection->prepare($query);
+$raw = $statement->execute($params);
 
 if($raw > 0)
     return header('Location: ./index.php');
