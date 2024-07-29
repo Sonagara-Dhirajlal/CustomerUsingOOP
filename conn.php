@@ -8,7 +8,7 @@ $mobilenumber =$_POST['mobilenumber'];
 $email =$_POST['email'];
 $address =$_POST['address'];
 
-$query = "INSERT INTO cusdetails (`Name`,`MobileNumber`,`Email`,`Address`) VALUES (?,?,?,?)";
+$query = "INSERT INTO cdetails (`Name`,`MobileNumber`,`Email`,`Address`) VALUES (?,?,?,?)";
 $params = [$name,$mobilenumber,$email,$address];
 
 $statement = $connection->prepare($query);

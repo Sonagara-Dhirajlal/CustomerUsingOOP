@@ -4,7 +4,7 @@ include "./connection.php";
 
 $id = $_GET['id'];
 
-$query = "DELETE FROM `cusdetails` WHERE `id` = (?)";
+$query = "DELETE FROM `cdetails` WHERE `id` = (?)";
 $params = [$id];
 $statement = $connection->prepare($query);
 $raw = $statement->execute($params);

@@ -1,1 +1,0 @@
-Certainly! Crafting this README for this project.

@@ -8,7 +8,7 @@ $mobilenumber = $_POST['mobilenumber'];
 $email = $_POST['email'];
 $address = $_POST['address'];
 
-$query = "UPDATE `cusdetails` SET `Name` = (?), `MobileNumber` = (?), `Email` = (?), `Address` = (?) WHERE `Id` = (?) ";
+$query = "UPDATE `cdetails` SET `Name` = (?), `MobileNumber` = (?), `Email` = (?), `Address` = (?) WHERE `Id` = (?) ";
 $params = [$name,$mobilenumber,$email,$address,$id];
 
 $statement = $connection->prepare($query);

@@ -3,7 +3,7 @@
 $id = $_GET['id'];
 
 include "./connection.php";
-$query = " SELECT * FROM `cusdetails` WHERE `id` = (?) ";
+$query = " SELECT * FROM `cdetails` WHERE `id` = (?) ";
 $params = [$id];
 $statement = $connection->prepare($query);
 $row = $statement->execute($params);
