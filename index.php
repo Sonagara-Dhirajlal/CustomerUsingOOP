@@ -1,6 +1,6 @@
 <?php
 include "./connection.php";
-$query = "SELECT * FROM `cusdetails`";
+$query = "SELECT * FROM `cdetails`";
 $statement = $connection->prepare($query);
 $statement->execute();
 $users = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -12,7 +12,7 @@ $users = $statement->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cusdetails</title>
+    <title>Client</title>
 </head>
 <body>
         <form action="./conn.php" method="POST" >

@@ -1,6 +1,6 @@
-CREATE DATABASE `customer`;
+CREATE DATABASE `client`;
 
-CREATE TABLE `cusdetails`(
+CREATE TABLE `cdetails`(
     `ID` INT PRIMARY KEY AUTO_INCREMENT,
     `Name` VARCHAR(250),
     `MobileNumber` VARCHAR(250),
