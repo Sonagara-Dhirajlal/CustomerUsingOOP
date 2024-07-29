@@ -1,8 +1,9 @@
 <?php
-$connection = mysqli_connect('localhost','root','','me');
-$query = "SELECT * FROM cusdetails";
-$row = mysqli_query($connection, $query);
-$users = mysqli_fetch_all($row, MYSQLI_ASSOC);
+include "./connection.php";
+$query = "SELECT * FROM `cusdetails`";
+$statement = $connection->prepare($query);
+$statement->execute();
+$users = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 

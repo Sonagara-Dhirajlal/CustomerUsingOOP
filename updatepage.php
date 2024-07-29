@@ -2,11 +2,13 @@
 
 $id = $_GET['id'];
 
-$connection = mysqli_connect('localhost','root','','me');
-$query = " SELECT * FROM `cusdetails` WHERE `id` = $id ";
-$row = mysqli_query($connection, $query);
+include "./connection.php";
+$query = " SELECT * FROM `cusdetails` WHERE `id` = (?) ";
+$params = [$id];
+$statement = $connection->prepare($query);
+$row = $statement->execute($params);
+$user = $statement->fetch(PDO::FETCH_ASSOC);
 
-$user = mysqli_fetch_assoc($row);
 ?>
 
 
@@ -25,7 +27,7 @@ $user = mysqli_fetch_assoc($row);
             <br>
 
             <label for="">Name : </label>
-            <input type="text" name="name" value ="<?= $user['Name']?>" valueplaceholder="Enter name" autofocus>
+            <input type="text" name="name" value ="<?= $user['Name']?>" placeholder="Enter name" autofocus>
             <br>
             <br>
         
